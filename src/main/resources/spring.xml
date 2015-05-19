@@ -71,9 +71,7 @@
 				hibernate.connection.url=${jdbc.url}
 				hibernate.connection.username=${jdbc.username}
 				hibernate.connection.password=${jdbc.password}
-<!--
-					hibernate.hbm2ddl.auto=${hiberante.hbm2ddl}
-				-->
+				hibernate.hbm2ddl.auto=${hiberante.hbm2ddl}
 				hibernate.show_sql=${hibernate.showsql}
 				hibernate.format_sql=${hibernate.formatsql}
 				hibernate.cache.use_second_level_cache=${hibernate.secondlevelcache}

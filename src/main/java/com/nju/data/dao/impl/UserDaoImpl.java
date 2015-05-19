@@ -18,7 +18,7 @@ import com.nju.data.dataobject.UserDO;
  */
 public class UserDaoImpl extends HibernateDaoSupport implements UserDao{
 	
-	protected static Logger log = LoggerFactory.getLogger(UserDao.class);;
+	protected static Logger log = LoggerFactory.getLogger(UserDao.class);
 
 
 	@SuppressWarnings("unchecked")
@@ -29,6 +29,7 @@ public class UserDaoImpl extends HibernateDaoSupport implements UserDao{
 		try {
 			String sql = "from UserDO where username = '"+username+"' and password='"+password+"'";
 			Session se = this.currentSession();
+		
 			Query q = se.createQuery(sql);
 			List<UserDO> result = q.list();
 			return result.size()==0?null:result.get(0);
