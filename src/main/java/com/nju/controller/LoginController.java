@@ -16,7 +16,7 @@ import com.nju.data.dataobject.UserDO;
 import com.nju.service.UserService;
 import com.nju.util.ResponseBuilder;
 /**
- * ¸ºÔğ´¦ÀíÓÃ»§µÇÂ¼ÇëÇó
+ * è´Ÿè´£å¤„ç†ç”¨æˆ·ç™»å½•è¯·æ±‚
  * @author Wangy
  *
  */
@@ -37,7 +37,7 @@ public class LoginController {
 		
 		
 		try {
-			rb.writeJsonResponse(response, new UserDO());//µÚ¶şÎ»²ÎÊı²»ÄÜÎª×Ö·û´®
+			rb.writeJsonResponse(response, isSuccess);//ç¬¬äºŒä½å‚æ•°ä¸èƒ½ä¸ºå­—ç¬¦ä¸²
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
