@@ -16,7 +16,7 @@ import com.nju.data.dataobject.UserDO;
 import com.nju.service.UserService;
 import com.nju.util.ResponseBuilder;
 /**
- * 负责处理用户登录请求
+ * 璐熻矗澶勭悊鐢ㄦ埛鐧诲綍璇锋眰
  * @author Wangy
  *
  */
@@ -37,7 +37,7 @@ public class LoginController {
 		
 		
 		try {
-			rb.writeJsonResponse(response, new UserDO());//第二位参数不能为字符串
+			rb.writeJsonResponse(response, isSuccess);//第二位参数不能为字符串
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
