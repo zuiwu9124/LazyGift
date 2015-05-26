@@ -1,6 +1,5 @@
 *.class
 
-*.xml
 *.properties
 *.project
 *.classpath
