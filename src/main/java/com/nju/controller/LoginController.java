@@ -12,6 +12,7 @@ import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
+import com.nju.data.dataobject.UserDO;
 import com.nju.service.UserService;
 import com.nju.util.ResponseBuilder;
 /**
@@ -34,8 +35,9 @@ public class LoginController {
 		
 		boolean isSuccess = this.userService.login(username, password);
 		
+		
 		try {
-			rb.writeJsonResponse(response, isSuccess);//第二位参数不能为字符串
+			rb.writeJsonResponse(response, new UserDO());//第二位参数不能为字符串
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
