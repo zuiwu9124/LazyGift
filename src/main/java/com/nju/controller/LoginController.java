@@ -37,7 +37,7 @@ public class LoginController {
 		
 		
 		try {
-			rb.writeJsonResponse(response, new UserDO());//第二位参数不能为字符串
+			rb.writeJsonResponse(response, isSuccess);//第二位参数不能为字符串
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
