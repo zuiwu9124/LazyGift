@@ -2,24 +2,19 @@ package com.nju.service;
 
 import java.util.List;
 
+import com.nju.data.dataobject.OrderDO;
 import com.nju.model.Order;
-import com.nju.util.data.Position;
 
 public interface OrderManagerService {
 
 	/**
-	 * ¸ù¾Ý¹¤×÷ÈËÔ±idºÍ¶©µ¥×´Ì¬»ñµÃÊôÓÚ¸ÃÔ±¹¤ÌØ¶¨×´Ì¬µÄ¶©µ¥
+	 * ï¿½ï¿½Ý¹ï¿½ï¿½ï¿½ï¿½ï¿½Ô±idï¿½Í¶ï¿½ï¿½ï¿½×´Ì¬ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ú¸ï¿½Ô±ï¿½ï¿½ï¿½Ø¶ï¿½×´Ì¬ï¿½Ä¶ï¿½ï¿½ï¿½
 	 * @param staffId
 	 * @param states
 	 * @return
 	 */
-	public List<Order> getOrdersByStaffId(long staffId, int[] states);
-	
-	/**
-	 * ¹ºÂòÉÌÆ·²Ù×÷
-	 * @param orderId
-	 * @param pos
-	 * @return
-	 */
-	public boolean BuyGoods(long orderId, Position pos);
+	public List<Order> getOrdersByStaffId(long staffId, String[] states);
+	public void saveOrder(OrderDO order);
+	public String findOrder(int OrderId);
 }
+
