@@ -1,5 +1,9 @@
 package com.nju.service;
 
-public interface GoodService {
+import java.util.List;
 
+public interface GoodService {
+	
+	List<String> matchName(String name);
+	
 }
