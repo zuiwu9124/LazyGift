@@ -16,7 +16,7 @@ import java.util.List;
 import org.apache.log4j.Logger;
 
 /**
- * ï¿½ï¿½ï¿½Ú¹ï¿½ï¿½ï¿½ï¿½ï¿½
+ * ÈÕÆÚ¹¤¾ßÀà
  * 
  * 
  */
@@ -30,11 +30,11 @@ public class DateUtil {
 	public final static String webFormat = "yyyy-MM-dd";
 	public final static String timeFormat = "HHmmss";
 	public final static String monthFormat = "yyyyMM";
-	public final static String chineseDtFormat = "yyyyï¿½ï¿½MMï¿½ï¿½ddï¿½ï¿½";
-	public final static String chineseFullFormat = "yyyyï¿½ï¿½MMï¿½ï¿½ddï¿½ï¿½ HHÊ±mmï¿½ï¿½";
-	public final static String chineseMDFormat = "MMï¿½ï¿½ddï¿½ï¿½";
+	public final static String chineseDtFormat = "yyyyÄêMMÔÂddÈÕ";
+	public final static String chineseFullFormat = "yyyyÄêMMÔÂddÈÕ HHÊ±mm·Ö";
+	public final static String chineseMDFormat = "MMÔÂddÈÕ";
 	/**
-	 * ï¿½ï¿½ï¿½ÔºÊ¹ï¿½ï¿½ï¿½ï¿½ï¿½Ú¸ï¿½Ê½YYYY-MM-DD
+	 * ×î¸ßÔºÊ¹ÓÃÈÕÆÚ¸ñÊ½YYYY-MM-DD
 	 */
 	public final static String newFormat = "yyyy-MM-dd";
 	public final static String zbFormat = "yyyy/MM/dd";
@@ -51,9 +51,9 @@ public class DateUtil {
 	private static final Logger logger = Logger.getLogger(DateUtil.class);
 
 	/**
-	 * ï¿½ï¿½ï¿½Ò»ï¿½ï¿½ï¿½ï¿½ï¿½Úµï¿½È¥ï¿½ï¿½ï¿½Í¬Ò»Ê±ï¿½ï¿½
+	 * »ñµÃÒ»¸öÈÕÆÚµÄÈ¥ÄêµÄÍ¬Ò»Ê±¼ä
 	 * 
-	 * @param date ï¿½ï¿½ï¿½ï¿½
+	 * @param date ÈÕÆÚ
 	 * @return
 	 */
 	public static Date getLastYear(Date date) {
@@ -129,13 +129,13 @@ public class DateUtil {
 	}
 
 	/**
-	 * ï¿½ï¿½×¼ï¿½ï¿½ï¿½ï¿½ï¿½
+	 * ±ê×¼»¯Êä³ö
 	 * 
 	 * @param date
-	 *            ï¿½ï¿½ï¿½Ú¶ï¿½ï¿½ï¿½
+	 *            ÈÕÆÚ¶ÔÏó
 	 * @param format
-	 *            ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ê½
-	 * @return ï¿½ï¿½ï¿½ï¿½Ö¸ï¿½ï¿½ï¿½ï¿½Ê½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ö·ï¿½
+	 *            ÈÕÆÚÊä³ö¸ñÊ½
+	 * @return °´ÕÕÖ¸¶¨¸ñÊ½Êä³öµÄ×Ö·û´®
 	 */
 	public static String format(Date date, String format) {
 		if (date == null) {
@@ -146,7 +146,7 @@ public class DateUtil {
 	}
 
 	/**
-	 * ï¿½ï¿½ï¿½Ò»ï¿½ï¿½Ê±ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+	 * »ñµÃÒ»¸öÊ±¼äµÄÄê·ÝÊý
 	 * 
 	 * @param date
 	 * @return
@@ -161,7 +161,7 @@ public class DateUtil {
 	}
 
 	/**
-	 * ï¿½ï¿½ï¿½Ò»ï¿½ï¿½Ê±ï¿½ï¿½ï¿½ï¿½Â·ï¿½ï¿½ï¿½
+	 * »ñµÃÒ»¸öÊ±¼äµÄÔÂ·ÝÊý
 	 * 
 	 * @param date
 	 * @return
@@ -176,7 +176,7 @@ public class DateUtil {
 	}
 
 	/**
-	 * ï¿½ï¿½ï¿½Ò»ï¿½ï¿½Ê±ï¿½ï¿½ï¿½ï¿½Ò»ï¿½ï¿½ï¿½ï¿½ï¿½Ðµï¿½ï¿½ï¿½ï¿½ï¿½
+	 * »ñµÃÒ»¸öÊ±¼äÔÚÒ»¸öÔÂÖÐµÄÌìÊý
 	 * 
 	 * @param date
 	 * @return
@@ -191,7 +191,7 @@ public class DateUtil {
 	}
 
 	/**
-	 * ï¿½ï¿½×¼ï¿½ï¿½ï¿½ï¿½ï¿½
+	 * ±ê×¼»¯Êä³ö
 	 * 
 	 * @param s_date
 	 * @param format
@@ -208,22 +208,16 @@ public class DateUtil {
 		}
 		return null;
 	}
-	
-	public static Timestamp getTime(String time) {
-		if(time.equals("")) return null;
-		Date outDate = parse(time, noSecondFormat);
-		return new Timestamp(outDate.getTime());
-	}
 
 	/**
-	 * È¡ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ú¼ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½1-ï¿½ï¿½ï¿½ï¿½2ï¿½ï¿½
+	 * È¡µÃÁ½¸öÈÕÆÚ¼ä¸ôÃëÊý£¨ÈÕÆÚ1-ÈÕÆÚ2£©
 	 * 
 	 * @param one
-	 *            ï¿½ï¿½ï¿½ï¿½1
+	 *            ÈÕÆÚ1
 	 * @param two
-	 *            ï¿½ï¿½ï¿½ï¿½2
+	 *            ÈÕÆÚ2
 	 * 
-	 * @return ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+	 * @return ¼ä¸ôÃëÊý
 	 */
 	public static long getDiffSeconds(Date one, Date two) {
 		Calendar sysDate = new GregorianCalendar();
@@ -237,7 +231,7 @@ public class DateUtil {
 	}
 
 	/**
-	 * È¡ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ú¼ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½1-ï¿½ï¿½ï¿½ï¿½2ï¿½ï¿½
+	 * È¡µÃÁ½¸öÈÕÆÚ¼ä¸ô·ÖÖÓÊý£¨ÈÕÆÚ1-ÈÕÆÚ2£©
 	 * 
 	 * @param one
 	 * @param two
@@ -256,12 +250,12 @@ public class DateUtil {
 	}
 
 	/**
-	 * È¡ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ÚµÄ¼ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+	 * È¡µÃÁ½¸öÈÕÆÚµÄ¼ä¸ôÌìÊý
 	 * 
 	 * @param one
 	 * @param two
 	 * 
-	 * @return ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+	 * @return ¼ä¸ôÌìÊý
 	 */
 	public static long getDiffDays(Date one, Date two) {
 		Calendar sysDate = new GregorianCalendar();
@@ -276,21 +270,21 @@ public class DateUtil {
 	}
 
 	/**
-	 * ï¿½Ð¶ï¿½ï¿½Ç·ï¿½ï¿½ï¿½ï¿½ï¿½È·ï¿½ï¿½ï¿½ï¿½ï¿½Ú¸ï¿½Ê½
+	 * ÅÐ¶ÏÊÇ·ñÊÇÕýÈ·µÄÈÕÆÚ¸ñÊ½
 	 * 
 	 * @param str_date
-	 *            ï¿½ï¿½ï¿½ï¿½ï¿½Ö·ï¿½
+	 *            ÈÕÆÚ×Ö·û´®
 	 * @param format
-	 *            ï¿½ï¿½ï¿½Ú¸ï¿½Ê½
+	 *            ÈÕÆÚ¸ñÊ½
 	 * @return
 	 */
 	public static boolean isValidDateFormat(String strDate, String format) {
-		// ï¿½ï¿½é³¤ï¿½ï¿½
+		// ¼ì²é³¤¶È
 		if (strDate.length() != format.length()) {
 			return false;
 		}
 
-		// ï¿½ï¿½ï¿½ï¿½Ê½ï¿½Ç·ï¿½ï¿½ï¿½È·
+		// ¼ì²é¸ñÊ½ÊÇ·ñÕýÈ·
 		DateFormat df = new SimpleDateFormat(format);
 		df.setLenient(false);
 		try {
@@ -302,7 +296,7 @@ public class DateUtil {
 	}
 
 	/**
-	 * ï¿½ï¿½Ãµï¿½ï¿½ï¿½Ä¿ï¿½Ê¼Ê±ï¿½ï¿½
+	 * »ñµÃµ±ÌìµÄ¿ªÊ¼Ê±¼ä
 	 * 
 	 * @return
 	 */
@@ -311,16 +305,16 @@ public class DateUtil {
 	}
 
 	/**
-	 * ï¿½È½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Úµï¿½ï¿½Èºï¿½ï¿½Ïµ
+	 * ±È½ÏÁ½¸öÈÕÆÚµÄÏÈºó¹ØÏµ
 	 * 
 	 * @param one
-	 *            ï¿½ï¿½ï¿½ï¿½1
+	 *            ÈÕÆÚ1
 	 * @param two
-	 *            ï¿½ï¿½ï¿½ï¿½2
-	 * @return 0 ï¿½ï¿½ ï¿½ï¿½Ê¾ï¿½ï¿½ï¿½ 1 ï¿½ï¿½ oneï¿½ï¿½ï¿½ï¿½two -1 ï¿½ï¿½ twoï¿½ï¿½ï¿½ï¿½one
+	 *            ÈÕÆÚ2
+	 * @return 0 £º ±íÊ¾ÏàµÈ 1 £º one´óÓÚtwo -1 £º two´óÓÚone
 	 */
 	public static int compareDate(Date one, Date two) {
-		// ï¿½Ï·ï¿½ï¿½ï¿½ï¿½Ð¶ï¿½
+		// ºÏ·¨ÐÔÅÐ¶Ï
 		if (one == null && two != null)
 			return -1;
 		else if (one != null && two == null)
@@ -344,58 +338,58 @@ public class DateUtil {
 		SimpleDateFormat sdf = new SimpleDateFormat("yyyyMMdd");
 		String sdate = sdf.format(date);
 		String newsdate[] = new String[8];
-		// È«ï¿½ï¿½×ªï¿½ï¿½Îªï¿½ï¿½ï¿½ï¿½
+		// È«²¿×ª»¯Îªºº×Ö
 		for (int i = 0; i < sdate.length(); i++) {
 			int k = Integer.parseInt(Character.toString(sdate.charAt(i)));
 			switch (k) {
 			case 0:
-				newsdate[i] = "ï¿½ï¿½";
+				newsdate[i] = "©–";
 				break;
 			case 1:
 				newsdate[i] = "Ò»";
 				break;
 			case 2:
-				newsdate[i] = "ï¿½ï¿½";
+				newsdate[i] = "¶þ";
 				break;
 			case 3:
-				newsdate[i] = "ï¿½ï¿½";
+				newsdate[i] = "Èý";
 				break;
 			case 4:
-				newsdate[i] = "ï¿½ï¿½";
+				newsdate[i] = "ËÄ";
 				break;
 			case 5:
-				newsdate[i] = "ï¿½ï¿½";
+				newsdate[i] = "Îå";
 				break;
 			case 6:
-				newsdate[i] = "ï¿½ï¿½";
+				newsdate[i] = "Áù";
 				break;
 			case 7:
-				newsdate[i] = "ï¿½ï¿½";
+				newsdate[i] = "Æß";
 				break;
 			case 8:
-				newsdate[i] = "ï¿½ï¿½";
+				newsdate[i] = "°Ë";
 				break;
 			case 9:
-				newsdate[i] = "ï¿½ï¿½";
+				newsdate[i] = "¾Å";
 				break;
 			}
 		}
-		// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+		// ¼ÓÈëÄêÔÂÈÕ
 		List<String> s1 = new ArrayList<String>();
 		for (int i = 0; i < 8; i++) {
 			if (i < 4) {
 				s1.add(newsdate[i]);
 			} else if (i == 4) {
-				s1.add("ï¿½ï¿½");
+				s1.add("Äê");
 				s1.add(newsdate[i]);
 			} else if (i == 5) {
 				s1.add(newsdate[i]);
 			} else if (i == 6) {
-				s1.add("ï¿½ï¿½");
+				s1.add("ÔÂ");
 				s1.add(newsdate[i]);
 			} else if (i == 7) {
 				s1.add(newsdate[i]);
-				s1.add("ï¿½ï¿½");
+				s1.add("ÈÕ");
 			}
 
 		}
@@ -405,49 +399,55 @@ public class DateUtil {
 			newstr += s;
 		}
 		/*
-		 * ï¿½ï¿½È¡ï¿½Â·Ý¡ï¿½ï¿½ï¿½ï¿½ï¿½
+		 * ½ØÈ¡ÔÂ·Ý¡¢ÈÕÆÚ
 		 */
-		int i = newstr.indexOf("ï¿½ï¿½");
-		int j = newstr.indexOf("ï¿½ï¿½");
+		int i = newstr.indexOf("Äê");
+		int j = newstr.indexOf("ÔÂ");
 		String month = newstr.substring(i + 1, j);
 		String day = newstr.substring(j + 1, newstr.length() - 1);
 		/*
-		 * ï¿½ï¿½ï¿½ï¿½ï¿½Â·ï¿½
+		 * ´¦ÀíÔÂ·Ý
 		 */
 		String str1 = month.substring(0, 1);
 		String str2 = month.substring(1);
 		String newmonth = "";
-		if ("ï¿½ï¿½".equals(str1)) {
+		if ("©–".equals(str1)) {
 			newmonth = str2;
-		} else if ("Ò»".equals(str1) && "ï¿½ï¿½".equals(str2)) {
+		} else if ("Ò»".equals(str1) && "©–".equals(str2)) {
 			newmonth = "Ê®";
-		} else if ("Ò»".equals(str1) && !"ï¿½ï¿½".equals(str2)) {
+		} else if ("Ò»".equals(str1) && !"©–".equals(str2)) {
 			newmonth = "Ê®" + str2;
 		}
 
 		/*
-		 * ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+		 * ´¦ÀíÈÕÆÚ
 		 */
 		String st1 = day.substring(0, 1);
 		String st2 = day.substring(1);
 		String newday = "";
-		if ("ï¿½ï¿½".equals(st1)) {
+		if ("©–".equals(st1)) {
 			newday = st2;
-		} else if ("Ò»".equals(st1) && "ï¿½ï¿½".equals(st2)) {
+		} else if ("Ò»".equals(st1) && "©–".equals(st2)) {
 			newday = "Ê®";
-		} else if ("Ò»".equals(st1) && !"ï¿½ï¿½".equals(st2)) {
+		} else if ("Ò»".equals(st1) && !"©–".equals(st2)) {
 			newday = "Ê®" + st2;
-		} else if ("ï¿½ï¿½".equals(st1) && "ï¿½ï¿½".equals(st2)) {
+		} else if ("¶þ".equals(st1) && "©–".equals(st2)) {
 			newday = st1 + "Ê®";
-		} else if ("ï¿½ï¿½".equals(st1) && !"ï¿½ï¿½".equals(st2)) {
+		} else if ("¶þ".equals(st1) && !"©–".equals(st2)) {
 			newday = st1 + "Ê®" + st2;
-		} else if ("ï¿½ï¿½".equals(st1) && "ï¿½ï¿½".equals(st2)) {
+		} else if ("Èý".equals(st1) && "©–".equals(st2)) {
 			newday = st1 + "Ê®";
-		} else if ("ï¿½ï¿½".equals(st1) && !"ï¿½ï¿½".equals(st2)) {
+		} else if ("Èý".equals(st1) && !"©–".equals(st2)) {
 			newday = st1 + "Ê®" + st2;
 		}
-		String newstring = newstr.substring(0, i) + "ï¿½ï¿½" + newmonth + "ï¿½ï¿½"
-				+ newday + "ï¿½ï¿½";
+		String newstring = newstr.substring(0, i) + "Äê" + newmonth + "ÔÂ"
+				+ newday + "ÈÕ";
 		return newstring;
+	}
+	
+	public static Timestamp getTime(String time) {
+		if(time.equals("")) return null;
+		Date outDate = parse(time, noSecondFormat);
+		return new Timestamp(outDate.getTime());
 	}
 }

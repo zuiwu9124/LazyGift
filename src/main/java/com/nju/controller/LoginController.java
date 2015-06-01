@@ -37,7 +37,7 @@ public class LoginController {
 		
 		
 		try {
-			rb.writeJsonResponse(response, isSuccess);//ç¬¬äºŒä½å‚æ•°ä¸èƒ½ä¸ºå­—ç¬¦ä¸²
+			rb.writeJsonResponse(response, isSuccess);//µÚ¶şÎ»²ÎÊı²»ÄÜÎª×Ö·û´®
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();

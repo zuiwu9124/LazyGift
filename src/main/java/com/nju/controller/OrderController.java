@@ -6,7 +6,6 @@ import java.util.Date;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -14,8 +13,9 @@ import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
+import com.nju.data.dataobject.GoodsDO;
 import com.nju.data.dataobject.OrderDO;
-import com.nju.data.dataobject.UserDO;
+import com.nju.service.GoodService;
 import com.nju.service.OrderManagerService;
 import com.nju.util.DateUtil;
 import com.nju.util.ResponseBuilder;
@@ -25,30 +25,33 @@ import com.nju.util.ResponseBuilder;
 public class OrderController {
 	
 	@Autowired
-	private OrderManagerService orderManagerService;
+	private OrderManagerService orderService;
+	@Autowired
+	private GoodService goodsService;
 	
-	@RequestMapping(value = "/confirmOrderSubmit",method = RequestMethod.GET) 
+	@RequestMapping(value = "/confirmOrderSubmit",method = RequestMethod.POST) 
 	public void teamLogin(HttpServletRequest request, HttpServletResponse response, ModelMap model) {
 		ResponseBuilder rb = new ResponseBuilder();
-		HttpSession session = request.getSession();
-		UserDO account = (UserDO) session.getAttribute("cur_user");
-		String userName = account.getUsername();
-		String orderPrice = request.getParameter("orderPrice");
-		double order_price = Double.parseDouble(orderPrice);
+		long userId = 0 ;
+		String totalPrice = request.getParameter("orderPrice");
+ 		double total_price = Double.parseDouble(totalPrice);
+ 		Timestamp deliveryTime = DateUtil.getTime("2015-06-01 15:50");
 		String orderDestiantion = request.getParameter("orderDestiantion");
-		String orderGoodsId = request.getParameter("orderGoodsId");
-		int goods_id = Integer.parseInt(orderGoodsId);
+		String orderGoodsName = request.getParameter("orderGoodsName");
+//		GoodsDO orderGoods = goodsService.getGoodsByName(orderGoodsName);
+//		long goods_id = orderGoods.getId();
+		long goods_id = 1;
+		int state = 1;//代表订单生成
 		Timestamp orderStartTime = new Timestamp(new Date().getTime());
-		String deadline_date = request.getParameter("deadlineDate");
-		Timestamp deadlineDate = DateUtil.getTime(deadline_date);
-		OrderDO order = new OrderDO(userName,order_price,deadlineDate,orderDestiantion,goods_id,"START",0,orderStartTime);
-        try {
-        	orderManagerService.saveOrder(order);	
-			rb.writeJsonResponse(response, true);//碌脷露镁脦禄虏脦脢媒虏禄脛脺脦陋脳脰路没麓庐
+		String remark = "备注";
+ 		OrderDO order = new OrderDO(userId,total_price,deliveryTime,orderDestiantion,goods_id,state,orderStartTime,remark);
+         try {
+        	System.out.println("保存新的订单到数据库");
+        	orderService.saveOrder(order);	
+			rb.writeJsonResponse(response, order);//第二位参数不能为字符串
 		} catch (IOException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
-		}//
+		}
 	}
 
 
