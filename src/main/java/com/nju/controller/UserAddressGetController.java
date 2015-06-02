@@ -28,8 +28,10 @@ public class UserAddressGetController {
 		
 		UserAddressDO user_addr = userAddressService.getDefaultAddress(username);
 		System.out.println("Get Default Address!!!");
+		String default_address = user_addr.getStreet()+", " + user_addr.getBuilding() 
+				+ ", " + user_addr.getRoom() ;
 		try {
-			rb.writeJsonResponse(response, user_addr);
+			rb.writeJsonResponse(response, default_address);
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
