@@ -42,12 +42,21 @@ public class UserAddressDaoImpl extends HibernateDaoSupport implements UserAddre
 		// TODO Auto-generated method stub
 		log.debug("save default user address for " + user +"; Address: "+street+", "
 				+ building + "ยฅ, " + room+"สา");
+		UserAddressDO default_addr = this.getDefaultAddress(user);
+		if(default_addr != null){
+			default_addr.setStreet(street);
+			default_addr.setBuilding(building);
+			default_addr.setRoom(room);
+		}else{
+			default_addr = new UserAddressDO(user,street,building,room,true);
+		}
+		
 		try{
 			Session se = this.currentSession();
-			UserAddressDO user_address = new UserAddressDO(user,street,building,room,true);
 			Transaction transaction = se.beginTransaction();
-			se.save(user_address);
+			se.saveOrUpdate(default_addr);
 			transaction.commit();
+			se.flush();
 		}catch(RuntimeException re){
 			log.error("Save default address is failed!");
 			throw re;
