@@ -31,10 +31,21 @@ public class OrderController {
 	
 	@RequestMapping(value = "/confirmOrderSubmit",method = RequestMethod.POST) 
 	public void teamLogin(HttpServletRequest request, HttpServletResponse response, ModelMap model) {
+//		long id, int level, long parentId, String name, String pos, String remark,int num
+		GoodsDO goods = new GoodsDO();
+		goods.setLevel(1);
+		goods.setParentId(0);
+		goods.setName("商品");
+		goods.setPos("好又多");
+		goods.setRemark("货物Goods,root，无父类");
+		goods.setNum(12);
+		goodsService.saveGoods(goods);
 		ResponseBuilder rb = new ResponseBuilder();
 		long userId = 0 ;
 		String totalPrice = request.getParameter("orderPrice");
- 		double total_price = Double.parseDouble(totalPrice);
+		
+// 		double total_price = Double.parseDouble(totalPrice);
+		double total_price = 12;
  		Timestamp deliveryTime = DateUtil.getTime("2015-06-01 15:50");
 		String orderDestiantion = request.getParameter("orderDestiantion");
 		String orderGoodsName = request.getParameter("orderGoodsName");

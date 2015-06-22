@@ -30,5 +30,18 @@ public class GoodServiceImpl implements GoodService{
 		// TODO Auto-generated method stub
 		return goodsDao.findGoodsByGoodsName(orderGoodsName);
  	}
+
+	@Override
+	public List<GoodsDO> searchGoodsByName(String goodsName) {
+		// TODO Auto-generated method stub
+		List<GoodsDO> searchedGoodsList = goodsDao.getGoodsBySearchName(goodsName);
+		return searchedGoodsList;
+	}
+
+	@Override
+	public void saveGoods(GoodsDO goods) {
+		// TODO Auto-generated method stub
+		goodsDao.save(goods);
+	}
 	
 }
